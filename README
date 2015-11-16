@@ -1,0 +1,53 @@
+gilovi
+30060449
+
+matlab version: 2014a
+
+
+Exercise 2: Fourier Transform & Convolution
+=================================================
+
+submitted files:
+----------------
+DFT.m:
+returns the fourier transform of a given signal
+
+IDFT.m:
+returns the inverse fourier transform of a given fourier Signal
+
+DFT2.m:
+returns the 2D fourier transform of a given signal
+
+IDFT2.m:
+returns the 2D inverse fourier transform of a given fourier Image
+
+convDerivative.m:
+returns the input image's derivetive using convulution
+
+fourierDerivative.m:
+returns the input image's derivetive using fourier space
+
+blurInImageSpace.m:
+performs image blurring using convolution between the image f and a gaussian kernel g.
+
+blurInFourierSpace.m:
+performs image blurring with gaussian kernel in fourier space.
+
+
+
+ANSWERS TO QUESTIONS
+---------------------
+
+2.2
+Q: Why did you get two different magnitude images?
+A: as we saw in the midtest the mask of [1 0 -1] is not the same in the frequency as the fourier operator.
+we can deduce that it is not the same operator, thus it's makes sense the output will not be the same.
+generaly the space algrithm is doing an approximitation due to the discrete nature of the image. while the
+fourier is a bit more accurate.
+another difference can occour due to constant multipication that might be absent from the fourier algo. 
+
+3.2 
+Q: What is the difference between the two results?
+A: there is no seemable differant between the images , except for in the edges due to convulution effects of fading
+cased by the zearo padding the matlab uses in order to preform a descrete convulution between the two matrices
+considering that we used (almost) the same operator in both cases, just in differant spaces, its maks sens. 
