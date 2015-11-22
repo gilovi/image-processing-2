@@ -3,13 +3,14 @@ function magnitude = fourierDerivative(inImage)
 height = size(inImage,1);
 width = size(inImage,2);
 
-u = [0:ceil(width/2)-1, -fliplr(1:floor(width/2))]; %setting the freqs to be 0,..n/2,-n/2...1
-v = [0:ceil(height/2)-1, -fliplr(1:floor(height/2))];
-uv=conv2(u,v');
+u = repmat( [0:ceil(width/2)-1, -fliplr(1:floor(width/2))], [height,1]); %setting the freqs to be 0,..n/2,-n/2...1
+v = repmat( [0:ceil(height/2)-1, -fliplr(1:floor(height/2))]', [1,width]);
 
 fourierIm = DFT2(inImage);
-fourier_der = fourierIm.*uv;
-magnitude =(-4*pi^2/(length(u)*length(v)))* IDFT2(fourier_der);
+x_der = 2 * pi * 1i /(length(u)) * IDFT2(fourierIm.*u);
+y_der = 2 * pi * 1i /(length(v)) * IDFT2(fourierIm.*v);
+
+magnitude = sqrt(x_der.^2 + y_der.^2);
+imshow(magnitude);
 
 end
-

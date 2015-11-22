@@ -40,13 +40,18 @@ ANSWERS TO QUESTIONS
 
 2.2
 Q: Why did you get two different magnitude images?
-A: as we saw in the midtest the mask of [1 0 -1] is not the same in the frequency as the fourier operator.
+A: as we saw in the last years midtest the mask of [1 0 -1] is not the same in the frequency as the fourier operator.
 we can deduce that it is not the same operator, thus it's makes sense the output will not be the same.
 generaly the space algrithm is doing an approximitation due to the discrete nature of the image. while the
 fourier is a bit more accurate.
 another difference can occour due to constant multipication that might be absent from the fourier algo. 
 
 3.2 
+Q: What happens if the center of thr gaussian will not be at (0,0)?
+we would get a shifted image. thus because a shift at the fourier space results a shift in image space and vice-versa.
+so multiplication with translated kernel will result phase shift in the resulted fourier image which
+in turn result shift in the final image.
+
 Q: What is the difference between the two results?
 A: there is no seemable differant between the images , except for in the edges due to convulution effects of fading
 cased by the zearo padding the matlab uses in order to preform a descrete convulution between the two matrices
